@@ -1,0 +1,2 @@
+plugins { id 'com.android.application' }
+android { namespace 'com.barsik.vpn'; compileSdk 34; defaultConfig { applicationId 'com.barsik.vpn'; minSdk 24; targetSdk 34; versionCode 1; versionName '1.0' } buildTypes { release { minifyEnabled false } } }

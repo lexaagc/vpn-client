@@ -9,7 +9,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
 
         val text = TextView(this)
-        text.text = "Работает 😎"
+        text.text = "НОВАЯ ВЕРСИЯ 123"
         setContentView(text)
     }
 }

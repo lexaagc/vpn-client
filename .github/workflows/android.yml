@@ -21,14 +21,12 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      - name: Grant execute permission
-        run: chmod +x gradlew
-
+      # ❗ ВАЖНО: gradlew у тебя нет → используем системный gradle
       - name: Build APK
-  run: ./gradlew assembleDebug --no-daemon
+        run: gradle assembleDebug --no-daemon
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: "app/build/outputs/apk/debug/app-debug.apk"
+          path: app/build/outputs/apk/debug/

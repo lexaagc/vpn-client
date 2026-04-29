@@ -23,7 +23,7 @@ jobs:
 
       # ❗ ВАЖНО: gradlew у тебя нет → используем системный gradle
       - name: Build APK
-        run: gradle assembleDebug --no-daemon
+        run: ./gradlew assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4

@@ -21,8 +21,10 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v3
 
-      # ❗ ВАЖНО: gradlew у тебя нет → используем системный gradle
-      - name: Build APK
+        - name: Make gradlew executable
+        run: chmod +x gradlew
+
+        - name: Build APK
         run: ./gradlew assembleDebug
 
       - name: Upload APK

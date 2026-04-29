@@ -4,9 +4,7 @@
         android:label="Barsik VPN"
         android:theme="@android:style/Theme.DeviceDefault.NoActionBar">
 
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
+        <activity android:name="com.barsik.vpn.MainActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

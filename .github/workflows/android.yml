@@ -24,6 +24,9 @@ jobs:
       - name: Make gradlew executable
         run: chmod +x gradlew
 
+      - name: Debug files
+        run: find app -type f
+
       - name: Build APK
         run: ./gradlew clean assembleDebug
  

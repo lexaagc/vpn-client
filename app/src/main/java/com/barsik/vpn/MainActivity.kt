@@ -2,7 +2,6 @@ package com.barsik.vpn
 
 import android.content.ClipboardManager
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -16,28 +15,30 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val keyStatus = findViewById<TextView>(R.id.keyStatus)
         val statusText = findViewById<TextView>(R.id.statusText)
         val pasteBtn = findViewById<Button>(R.id.pasteBtn)
         val startBtn = findViewById<Button>(R.id.startBtn)
 
-        // 👉 Вставка ключа
+        // Вставка ключа из буфера
         pasteBtn.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
-            val text = clipboard.primaryClip
-                ?.getItemAt(0)
-                ?.text
-                ?.toString()
+            if (clipboard.hasPrimaryClip()) {
+                val text = clipboard.primaryClip?.getItemAt(0)?.text?.toString()
 
-            if (!text.isNullOrEmpty()) {
-                vpnKey = text
-                statusText.text = "Ключ установлен ✅"
+                if (!text.isNullOrEmpty()) {
+                    vpnKey = text
+                    keyStatus.text = "Ключ установлен ✅"
+                } else {
+                    keyStatus.text = "Буфер пуст ❌"
+                }
             } else {
-                statusText.text = "Буфер пуст ❌"
+                keyStatus.text = "Буфер пуст ❌"
             }
         }
 
-        // 👉 Старт VPN
+        // Старт VPN
         startBtn.setOnClickListener {
             if (vpnKey.isNullOrEmpty()) {
                 statusText.text = "Сначала вставь ключ"
@@ -45,11 +46,8 @@ class MainActivity : AppCompatActivity() {
             }
 
             statusText.text = "Подключение..."
-
-            val intent = Intent(this, MyVpnService::class.java)
-            intent.putExtra("link", vpnKey)
-
-            startService(intent)
+            
+            // TODO: запуск VPN сервиса
         }
     }
 }

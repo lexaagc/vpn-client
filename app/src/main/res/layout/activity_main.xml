@@ -2,34 +2,36 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#D9D9D9">
+    android:fillViewport="true"
+    android:background="#EDEDED">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:padding="24dp">
 
         <!-- Заголовок -->
         <TextView
             android:text="Барсик_VPN"
-            android:textSize="26sp"
+            android:textSize="24sp"
             android:textStyle="bold"
-            android:textColor="#FF9800"
-            android:layout_marginBottom="20dp"/>
+            android:textColor="#FFA500"
+            android:layout_marginBottom="16dp"/>
 
         <!-- Поле ключа -->
-        <EditText
-            android:id="@+id/keyInput"
-            android:hint="Ключ еще не вставлен..."
+        <TextView
+            android:id="@+id/keyText"
+            android:text="Ключ еще не вставлен..."
             android:background="#FFFFFF"
             android:padding="12dp"
+            android:textColor="#000000"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"/>
 
-        <!-- Кнопка вставить -->
+        <!-- Кнопка вставки -->
         <Button
             android:id="@+id/pasteBtn"
             android:text="Вставить ключ из буфера"
@@ -37,7 +39,7 @@
             android:textColor="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="16dp"/>
+            android:layout_marginBottom="12dp"/>
 
         <!-- Кнопка старт -->
         <Button
@@ -47,23 +49,40 @@
             android:textColor="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dp"/>
+            android:layout_marginBottom="24dp"/>
 
-        <!-- Кот (пока без картинки, потом добавим) -->
-        <ImageView
-            android:id="@+id/catImage"
-            android:src="@android:drawable/ic_menu_gallery"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_marginBottom="12dp"/>
+        <!-- Блок с котом -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginBottom="16dp">
 
-        <!-- Статус -->
-        <TextView
-            android:id="@+id/statusText"
-            android:text="Система готова..."
-            android:textColor="#00C853"
-            android:textSize="16sp"
-            android:layout_marginBottom="16dp"/>
+            <!-- Черный блок -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:layout_gravity="bottom"
+                android:background="#000000"
+                android:layout_marginTop="40dp"/>
+
+            <!-- Кот -->
+            <ImageView
+                android:id="@+id/catImage"
+                android:src="@drawable/cat"
+                android:layout_width="180dp"
+                android:layout_height="180dp"
+                android:layout_gravity="top|center_horizontal"/>
+
+            <!-- Статус -->
+            <TextView
+                android:id="@+id/statusText"
+                android:text="Система готова..."
+                android:textColor="#00C853"
+                android:textSize="16sp"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"/>
+
+        </FrameLayout>
 
         <!-- Версия -->
         <TextView
@@ -72,4 +91,5 @@
             android:textColor="#666666"/>
 
     </LinearLayout>
+
 </ScrollView>

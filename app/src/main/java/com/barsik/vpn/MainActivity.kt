@@ -22,7 +22,10 @@ class MainActivity : AppCompatActivity() {
 
         pasteBtn.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-            val text = clipboard.primaryClip?.getItemAt(0)?.text?.toString()
+
+            val text = if (clipboard.hasPrimaryClip()) {
+                clipboard.primaryClip?.getItemAt(0)?.text?.toString()
+            } else null
 
             if (!text.isNullOrEmpty()) {
                 vpnKey = text

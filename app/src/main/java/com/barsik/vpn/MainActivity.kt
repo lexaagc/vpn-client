@@ -2,6 +2,7 @@ package com.barsik.vpn
 
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -19,26 +20,24 @@ class MainActivity : AppCompatActivity() {
         val pasteBtn = findViewById<Button>(R.id.pasteBtn)
         val startBtn = findViewById<Button>(R.id.startBtn)
 
-        // Вставка ключа из буфера
+        // 👉 Вставка ключа
         pasteBtn.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
 
-            if (clipboard.hasPrimaryClip()) {
-                val item = clipboard.primaryClip?.getItemAt(0)
-                val text = item?.text?.toString()
+            val text = clipboard.primaryClip
+                ?.getItemAt(0)
+                ?.text
+                ?.toString()
 
-                if (!text.isNullOrEmpty()) {
-                    vpnKey = text
-                    statusText.text = "Ключ установлен"
-                } else {
-                    statusText.text = "Буфер пуст"
-                }
+            if (!text.isNullOrEmpty()) {
+                vpnKey = text
+                statusText.text = "Ключ установлен ✅"
             } else {
-                statusText.text = "Буфер пуст"
+                statusText.text = "Буфер пуст ❌"
             }
         }
 
-        // Старт VPN
+        // 👉 Старт VPN
         startBtn.setOnClickListener {
             if (vpnKey.isNullOrEmpty()) {
                 statusText.text = "Сначала вставь ключ"
@@ -47,7 +46,10 @@ class MainActivity : AppCompatActivity() {
 
             statusText.text = "Подключение..."
 
-            // TODO: запуск VPN сервиса
+            val intent = Intent(this, MyVpnService::class.java)
+            intent.putExtra("link", vpnKey)
+
+            startService(intent)
         }
     }
 }

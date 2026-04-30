@@ -20,25 +20,18 @@ class MainActivity : AppCompatActivity() {
         val pasteBtn = findViewById<Button>(R.id.pasteBtn)
         val startBtn = findViewById<Button>(R.id.startBtn)
 
-        // Вставка ключа из буфера
         pasteBtn.setOnClickListener {
             val clipboard = getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+            val text = clipboard.primaryClip?.getItemAt(0)?.text?.toString()
 
-            if (clipboard.hasPrimaryClip()) {
-                val text = clipboard.primaryClip?.getItemAt(0)?.text?.toString()
-
-                if (!text.isNullOrEmpty()) {
-                    vpnKey = text
-                    keyStatus.text = "Ключ установлен ✅"
-                } else {
-                    keyStatus.text = "Буфер пуст ❌"
-                }
+            if (!text.isNullOrEmpty()) {
+                vpnKey = text
+                keyStatus.text = "Ключ установлен"
             } else {
-                keyStatus.text = "Буфер пуст ❌"
+                keyStatus.text = "Буфер пуст"
             }
         }
 
-        // Старт VPN
         startBtn.setOnClickListener {
             if (vpnKey.isNullOrEmpty()) {
                 statusText.text = "Сначала вставь ключ"
@@ -46,8 +39,6 @@ class MainActivity : AppCompatActivity() {
             }
 
             statusText.text = "Подключение..."
-            
-            // TODO: запуск VPN сервиса
         }
     }
 }

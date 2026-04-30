@@ -14,7 +14,7 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val keyInput = findViewById<EditText>(R.id.keyInput)
+        val key = findViewById<TextView>(R.id.keyText)
         val pasteBtn = findViewById<Button>(R.id.pasteBtn)
         val startBtn = findViewById<Button>(R.id.startBtn)
         val status = findViewById<TextView>(R.id.statusText)

@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val keyStatus = findViewById<TextView>(R.id.keyStatus)
-        val statusText = findViewById<TextView>(R.id.statusText)
+        val statusText = findViewById<TextView>(R.id.keyStatus)
         val pasteBtn = findViewById<Button>(R.id.pasteBtn)
         val startBtn = findViewById<Button>(R.id.startBtn)
 

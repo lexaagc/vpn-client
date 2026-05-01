@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#EDEDED">
 
-    <!-- Заголовок -->
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
@@ -15,13 +14,11 @@
         android:textSize="24sp"
         android:textColor="#FFA000"
         android:textStyle="bold"
-
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Статус -->
     <TextView
         android:id="@+id/keyStatus"
         android:layout_width="wrap_content"
@@ -29,13 +26,11 @@
         android:text="Ключ не вставлен"
         android:textSize="16sp"
         android:textColor="#444444"
-
         app:layout_constraintTop_toBottomOf="@id/title"
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- Кнопка вставки -->
     <Button
         android:id="@+id/pasteBtn"
         android:layout_width="0dp"
@@ -43,14 +38,12 @@
         android:text="Вставить ключ из буфера"
         android:backgroundTint="#4CAF50"
         android:textColor="#FFFFFF"
-
         app:layout_constraintTop_toBottomOf="@id/keyStatus"
         android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="24dp"/>
 
-    <!-- Кнопка старт -->
     <Button
         android:id="@+id/startBtn"
         android:layout_width="0dp"
@@ -58,14 +51,24 @@
         android:text="Старт"
         android:backgroundTint="#2196F3"
         android:textColor="#FFFFFF"
-
         app:layout_constraintTop_toBottomOf="@id/pasteBtn"
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="24dp"/>
 
-    <!-- Терминал -->
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Версия: v1.0"
+        android:textSize="12sp"
+        android:textColor="#666666"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
     <TextView
         android:id="@+id/terminal"
         android:layout_width="0dp"
@@ -74,39 +77,27 @@
         android:textColor="#00FF00"
         android:text="Система готова..."
         android:padding="12dp"
-
+        android:fontFamily="monospace"
         app:layout_constraintBottom_toTopOf="@id/version"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
         android:layout_marginBottom="16dp"
         android:layout_marginHorizontal="24dp"/>
 
-    <!-- Кот (ВСЕГДА над терминалом) -->
     <ImageView
         android:id="@+id/catImage"
         android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_height="120dp"
         android:src="@drawable/cat"
-
+        android:scaleType="fitCenter"
+        
+        /* Привязываем низ кота к верху терминала */
         app:layout_constraintBottom_toTopOf="@id/terminal"
-        android:layout_marginBottom="-40dp"
-
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <!-- Версия -->
-    <TextView
-        android:id="@+id/version"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Версия: v1.0"
-        android:textSize="12sp"
-        android:textColor="#666666"
-
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="12dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintStart_toStartOf="@id/terminal"
+        app:layout_constraintEnd_toEndOf="@id/terminal"
+        
+        /* Убираем зазор между котом и терминалом. 
+           Если кот все еще "летает", значит в самом PNG файле есть пустые поля снизу */
+        android:layout_marginBottom="-5dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -90,14 +90,9 @@
         android:layout_height="120dp"
         android:src="@drawable/cat"
         android:scaleType="fitCenter"
-        
-        /* Привязываем низ кота к верху терминала */
         app:layout_constraintBottom_toTopOf="@id/terminal"
         app:layout_constraintStart_toStartOf="@id/terminal"
         app:layout_constraintEnd_toEndOf="@id/terminal"
-        
-        /* Убираем зазор между котом и терминалом. 
-           Если кот все еще "летает", значит в самом PNG файле есть пустые поля снизу */
         android:layout_marginBottom="-5dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

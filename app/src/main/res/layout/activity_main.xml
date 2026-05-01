@@ -68,19 +68,6 @@
         android:layout_marginBottom="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
-    
-    <ImageView
-        android:id="@+id/catImage"
-        android:layout_width="220dp" 
-        android:layout_height="160dp"
-        android:src="@drawable/cat"
-        android:scaleType="fitCenter"
-        
-        app:layout_constraintBottom_toTopOf="@id/terminal"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        
-        android:layout_marginBottom="-72dp" />
 
     <TextView
         android:id="@+id/terminal"
@@ -97,6 +84,15 @@
         android:layout_marginBottom="16dp"
         android:layout_marginHorizontal="24dp"/>
 
-    
+    <ImageView
+        android:id="@+id/catImage"
+        android:layout_width="220dp"
+        android:layout_height="160dp"
+        android:src="@drawable/cat"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@id/terminal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="-105dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

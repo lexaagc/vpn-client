@@ -13,12 +13,12 @@
         android:layout_height="wrap_content"
         android:text="Барсик_VPN"
         android:textSize="24sp"
-        android:textStyle="bold"
         android:textColor="#FFA000"
+        android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_margin="40dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Статус -->
     <TextView
@@ -27,82 +27,80 @@
         android:layout_height="wrap_content"
         android:text="Ключ не вставлен"
         android:textSize="16sp"
-        android:textColor="#444"
+        android:textColor="#444444"
         app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintTop_margin="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="12dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <!-- Кнопка вставки -->
     <Button
         android:id="@+id/pasteBtn"
         android:layout_width="0dp"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:text="Вставить ключ из буфера"
         android:backgroundTint="#4CAF50"
-        android:textColor="#FFF"
+        android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/keyStatus"
+        app:layout_constraintTop_margin="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="20dp"/>
+        android:layout_marginHorizontal="24dp"/>
 
-    <!-- Старт -->
+    <!-- Кнопка старт -->
     <Button
         android:id="@+id/startBtn"
         android:layout_width="0dp"
-        android:layout_height="55dp"
+        android:layout_height="wrap_content"
         android:text="Старт"
         android:backgroundTint="#2196F3"
-        android:textColor="#FFF"
+        android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/pasteBtn"
+        app:layout_constraintTop_margin="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="20dp"/>
+        android:layout_marginHorizontal="24dp"/>
 
-    <!-- Блок кот + терминал -->
-    <FrameLayout
-        android:id="@+id/catBlock"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/startBtn"
-        app:layout_constraintBottom_toTopOf="@id/version"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="20dp">
-
-        <!-- Терминал -->
-     <TextView
+    <!-- Терминал -->
+    <TextView
         android:id="@+id/terminal"
-        android:layout_width="match_parent"
-        android:layout_height="220dp"
-        android:layout_gravity="bottom"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
         android:background="#111111"
         android:textColor="#00FF00"
         android:text="Система готова..."
         android:padding="12dp"
-        android:layout_marginTop="0dp"/> 
 
-        <!-- Кот -->
+        app:layout_constraintBottom_toTopOf="@id/version"
+        app:layout_constraintBottom_margin="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="24dp"/>
+
+    <!-- Кот -->
     <ImageView
         android:id="@+id/catImage"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:src="@drawable/cat"
-        android:layout_gravity="bottom|center_horizontal"
-        android:translationY="-100dp"/>
-    </FrameLayout>
 
-    <!-- ВЕРСИЯ ЖЁСТКО ВНИЗУ -->
+        app:layout_constraintBottom_toTopOf="@id/terminal"
+        app:layout_constraintBottom_margin="-60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Версия -->
     <TextView
         android:id="@+id/version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Версия: v1.0"
         android:textSize="12sp"
-        android:textColor="#666"
+        android:textColor="#666666"
+
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_margin="12dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="12dp"/>
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

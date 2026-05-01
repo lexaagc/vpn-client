@@ -1,91 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EDEDED">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="24dp"
-        android:gravity="top|center_horizontal">
+    <!-- Заголовок -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Барсик_VPN"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="#FFA000"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
 
-        <!-- Заголовок -->
+    <!-- Статус -->
+    <TextView
+        android:id="@+id/keyStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ключ не вставлен"
+        android:textSize="16sp"
+        android:textColor="#444"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <!-- Кнопка вставки -->
+    <Button
+        android:id="@+id/pasteBtn"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:text="Вставить ключ из буфера"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFF"
+        app:layout_constraintTop_toBottomOf="@id/keyStatus"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp"/>
+
+    <!-- Старт -->
+    <Button
+        android:id="@+id/startBtn"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:text="Старт"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFF"
+        app:layout_constraintTop_toBottomOf="@id/pasteBtn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="20dp"/>
+
+    <!-- Блок кот + терминал -->
+    <FrameLayout
+        android:id="@+id/catBlock"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/startBtn"
+        app:layout_constraintBottom_toTopOf="@id/version"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="20dp">
+
+        <!-- Терминал -->
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Барсик_VPN"
-            android:textSize="24sp"
-            android:textColor="#FFA000"
-            android:textStyle="bold"
-            android:layout_marginBottom="20dp"/>
-
-        <!-- Статус ключа -->
-        <TextView
-            android:id="@+id/keyStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Ключ не вставлен"
-            android:textSize="16sp"
-            android:textColor="#444444"
-            android:layout_marginBottom="12dp"/>
-
-        <!-- Кнопка вставки -->
-        <Button
-            android:id="@+id/pasteBtn"
+            android:id="@+id/terminal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Вставить ключ из буфера"
-            android:backgroundTint="#4CAF50"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="16dp"/>
+            android:layout_height="160dp"
+            android:layout_gravity="bottom"
+            android:background="#111"
+            android:textColor="#00FF00"
+            android:text="Система готова..."
+            android:padding="12dp"
+            android:layout_marginTop="40dp"/>
 
-        <!-- Кнопка старт -->
-        <Button
-            android:id="@+id/startBtn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Старт"
-            android:backgroundTint="#2196F3"
-            android:textColor="#FFFFFF"
-            android:layout_marginBottom="20dp"/>
+        <!-- Кот -->
+        <ImageView
+            android:id="@+id/catImage"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/cat"
+            android:layout_gravity="top|center_horizontal"/>
+    </FrameLayout>
 
-        <!-- РАСТЯГИВАЕМЫЙ БЛОК -->
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="10dp">
+    <!-- ВЕРСИЯ ЖЁСТКО ВНИЗУ -->
+    <TextView
+        android:id="@+id/version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Версия: v1.0"
+        android:textSize="12sp"
+        android:textColor="#666"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="12dp"/>
 
-            <!-- Терминал -->
-            <TextView
-                android:id="@+id/terminal"
-                android:layout_width="match_parent"
-                android:layout_height="160dp"
-                android:layout_gravity="bottom"
-                android:background="#111111"
-                android:textColor="#00FF00"
-                android:text="Система готова..."
-                android:padding="12dp"/>
-
-            <!-- Кот поверх -->
-            <ImageView
-                android:id="@+id/catImage"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/cat"
-                android:layout_gravity="bottom|center_horizontal"
-                android:translationY="-40dp"/>
-        </FrameLayout>
-
-        <!-- Версия ВСЕГДА ВНИЗУ -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Версия: v1.0"
-            android:textSize="12sp"
-            android:textColor="#666666"/>
-
-    </LinearLayout>
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

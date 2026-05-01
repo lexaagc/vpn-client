@@ -71,25 +71,25 @@
         android:layout_margin="20dp">
 
         <!-- Терминал -->
-        <TextView
-            android:id="@+id/terminal"
-            android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:layout_gravity="bottom"
-            android:background="#111"
-            android:textColor="#00FF00"
-            android:text="Система готова..."
-            android:padding="12dp"
-            android:layout_marginTop="40dp"/>
+     <TextView
+        android:id="@+id/terminal"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_gravity="bottom"
+        android:background="#111111"
+        android:textColor="#00FF00"
+        android:text="Система готова..."
+        android:padding="12dp"
+        android:layout_marginTop="0dp"/> 
 
         <!-- Кот -->
-        <ImageView
-            android:id="@+id/catImage"
-            android:layout_width="180dp"
-            android:layout_height="180dp"
-            android:src="@drawable/cat"
-            android:layout_gravity="bottom|center_horizontal"
-            android:translationY="-120dp"/>
+    <ImageView
+        android:id="@+id/catImage"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:src="@drawable/cat"
+        android:layout_gravity="bottom|center_horizontal"
+        android:translationY="-100dp"/>
     </FrameLayout>
 
     <!-- ВЕРСИЯ ЖЁСТКО ВНИЗУ -->

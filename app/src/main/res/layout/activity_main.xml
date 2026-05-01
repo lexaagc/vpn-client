@@ -15,8 +15,9 @@
         android:textSize="24sp"
         android:textColor="#FFA000"
         android:textStyle="bold"
+
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintTop_margin="40dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -28,8 +29,9 @@
         android:text="Ключ не вставлен"
         android:textSize="16sp"
         android:textColor="#444444"
+
         app:layout_constraintTop_toBottomOf="@id/title"
-        app:layout_constraintTop_margin="12dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -41,8 +43,9 @@
         android:text="Вставить ключ из буфера"
         android:backgroundTint="#4CAF50"
         android:textColor="#FFFFFF"
+
         app:layout_constraintTop_toBottomOf="@id/keyStatus"
-        app:layout_constraintTop_margin="20dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="24dp"/>
@@ -55,8 +58,9 @@
         android:text="Старт"
         android:backgroundTint="#2196F3"
         android:textColor="#FFFFFF"
+
         app:layout_constraintTop_toBottomOf="@id/pasteBtn"
-        app:layout_constraintTop_margin="16dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginHorizontal="24dp"/>
@@ -65,7 +69,7 @@
     <TextView
         android:id="@+id/terminal"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="220dp"
         android:background="#111111"
         android:textColor="#00FF00"
         android:text="Система готова..."
@@ -85,7 +89,7 @@
         android:src="@drawable/cat"
 
         app:layout_constraintBottom_toTopOf="@id/terminal"
-        app:layout_constraintBottom_margin="-60dp"
+        android:layout_marginBottom="-60dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
@@ -99,7 +103,7 @@
         android:textColor="#666666"
 
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintBottom_margin="12dp"
+        android:layout_marginBottom="12dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
